@@ -1,0 +1,21 @@
+#!/bin/sh
+# Job Gremlin privacy guard.
+# Blocks any commit that includes personal data (me/) or API keys (.env files),
+# even if they were force-added past .gitignore.
+#
+# Turn it on once after cloning:  git config core.hooksPath .githooks
+
+blocked=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '^me/|(^|/)\.env($|\.)' | grep -vE '(^|/)\.env\.example$')
+
+if [ -n "$blocked" ]; then
+  echo ""
+  echo "🛑 Job Gremlin privacy guard: commit blocked."
+  echo "These files look personal and should never be committed:"
+  echo "$blocked" | sed 's/^/   - /'
+  echo ""
+  echo "Remove them from the commit (your copy stays on disk):  git rm --cached <file>"
+  echo ""
+  exit 1
+fi
+
+exit 0

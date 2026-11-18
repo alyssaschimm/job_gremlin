@@ -1,0 +1,7 @@
+# Companies to watch, one per line: source and the company's job-board name.
+# Find the name in the company's careers URL, e.g.:
+#   boards.greenhouse.io/examplecorp  ->  greenhouse examplecorp
+#   jobs.lever.co/examplecorp         ->  lever examplecorp
+#   jobs.ashbyhq.com/examplecorp      ->  ashby examplecorp
+#
+# greenhouse examplecorp

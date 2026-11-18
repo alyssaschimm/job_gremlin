@@ -1,0 +1,17 @@
+# Your personal data. Never commit this folder.
+me/
+
+# API keys
+.env
+.env.*
+!.env.example
+
+# OS / editor clutter
+.DS_Store
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+
+# Claude Code per-user settings
+.claude/settings.local.json
